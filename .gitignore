@@ -1,0 +1,6 @@
+output/*
+*cached*
+*dev*
+*tmp*
+*.pkl
+src/legacy

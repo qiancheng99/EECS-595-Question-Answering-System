@@ -1,0 +1,376 @@
+& python run_squad.py `
+>>   --model_type albert `
+>>   --model_name_or_path albert-base-v2 `
+>>   --output_dir ./output/ `
+>>   --do_eval `
+>>   --do_lower_case `
+>>   --train_file ../squad/train-v2.0.json `
+>>   --predict_file ../squad/dev-v2.0.json `
+>>   --per_gpu_train_batch_size 3 `
+>>   --per_gpu_eval_batch_size 64 `
+>>   --learning_rate 3e-5 `
+>>   --num_train_epochs 3.0 `
+>>   --max_seq_length 384 `
+>>   --doc_stride 128 `
+>>   --save_steps 2000 `
+>>   --threads 24 `
+>>   --warmup_steps 814 `
+>>   --gradient_accumulation_steps 4 `
+>>   --do_train
+11/10/2021 18:53:02 - WARNING - __main__ - Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+[INFO|file_utils.py:1664] 2021-11-10 18:53:02,594 >> https://huggingface.co/albert-base-v2/resolve/main/config.json not found in cache or force_download set to True, downloading to C:\Users\TabrisAO\.cache\huggingface\transformers\tmpgj3dlo34
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 684/684 [00:00<00:00, 685kB/s]
+[INFO|file_utils.py:1668] 2021-11-10 18:53:02,769 >> storing https://huggingface.co/albert-base-v2/resolve/main/config.json in cache at C:\Users\TabrisAO/.cache\huggingface\transformers\e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|file_utils.py:1676] 2021-11-10 18:53:02,770 >> creating metadata file for C:\Users\TabrisAO/.cache\huggingface\transformers\e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:583] 2021-11-10 18:53:02,771 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at C:\Users\TabrisAO/.cache\huggingface\transformers\e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:620] 2021-11-10 18:53:02,772 >> Model config AlbertConfig {
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|tokenization_auto.py:334] 2021-11-10 18:53:02,967 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:583] 2021-11-10 18:53:03,137 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at C:\Users\TabrisAO/.cache\huggingface\transformers\e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:620] 2021-11-10 18:53:03,138 >> Model config AlbertConfig {
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|file_utils.py:1664] 2021-11-10 18:53:03,511 >> https://huggingface.co/albert-base-v2/resolve/main/spiece.model not found in cache or force_download set to True, downloading to C:\Users\TabrisAO\.cache\huggingface\transformers\tmpq0m8_8xu
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 742k/742k [00:00<00:00, 3.12MB/s]
+[INFO|file_utils.py:1668] 2021-11-10 18:53:03,934 >> storing https://huggingface.co/albert-base-v2/resolve/main/spiece.model in cache at C:\Users\TabrisAO/.cache\huggingface\transformers\10be6ce6d3508f1fdce98a57a574283b47c055228c1235f8686f039287ff8174.d6110e25022b713452eb83d5bfa8ae64530995a93d8e694fe52e05aa85dd3a7d
+[INFO|file_utils.py:1676] 2021-11-10 18:53:03,935 >> creating metadata file for C:\Users\TabrisAO/.cache\huggingface\transformers\10be6ce6d3508f1fdce98a57a574283b47c055228c1235f8686f039287ff8174.d6110e25022b713452eb83d5bfa8ae64530995a93d8e694fe52e05aa85dd3a7d
+[INFO|file_utils.py:1664] 2021-11-10 18:53:04,692 >> https://huggingface.co/albert-base-v2/resolve/main/tokenizer.json not found in cache or force_download set to True, downloading to C:\Users\TabrisAO\.cache\huggingface\transformers\tmp3qbfepks
+Downloading: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.25M/1.25M [00:00<00:00, 5.34MB/s]
+[INFO|file_utils.py:1668] 2021-11-10 18:53:05,193 >> storing https://huggingface.co/albert-base-v2/resolve/main/tokenizer.json in cache at C:\Users\TabrisAO/.cache\huggingface\transformers\828a43aa4b9d07e2b7d3be7c6bc10a3ae6e16e8d9c3a0c557783639de9eaeb1b.670e237d152dd53ef77575d4f4a6cd34158db03128fe4f63437ce0d5992bac74
+[INFO|file_utils.py:1676] 2021-11-10 18:53:05,194 >> creating metadata file for C:\Users\TabrisAO/.cache\huggingface\transformers\828a43aa4b9d07e2b7d3be7c6bc10a3ae6e16e8d9c3a0c557783639de9eaeb1b.670e237d152dd53ef77575d4f4a6cd34158db03128fe4f63437ce0d5992bac74
+[INFO|tokenization_utils_base.py:1741] 2021-11-10 18:53:05,195 >> loading file https://huggingface.co/albert-base-v2/resolve/main/spiece.model from cache at C:\Users\TabrisAO/.cache\huggingface\transformers\10be6ce6d3508f1fdce98a57a574283b47c055228c1235f8686f039287ff8174.d6110e25022b713452eb83d5bfa8ae64530995a93d8e694fe52e05aa85dd3a7d
+[INFO|tokenization_utils_base.py:1741] 2021-11-10 18:53:05,195 >> loading file https://huggingface.co/albert-base-v2/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2021-11-10 18:53:05,195 >> loading file https://huggingface.co/albert-base-v2/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2021-11-10 18:53:05,196 >> loading file https://huggingface.co/albert-base-v2/resolve/main/tokenizer_config.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2021-11-10 18:53:05,196 >> loading file https://huggingface.co/albert-base-v2/resolve/main/tokenizer.json from cache at C:\Users\TabrisAO/.cache\huggingface\transformers\828a43aa4b9d07e2b7d3be7c6bc10a3ae6e16e8d9c3a0c557783639de9eaeb1b.670e237d152dd53ef77575d4f4a6cd34158db03128fe4f63437ce0d5992bac74
+[INFO|configuration_utils.py:583] 2021-11-10 18:53:05,401 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at C:\Users\TabrisAO/.cache\huggingface\transformers\e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:620] 2021-11-10 18:53:05,401 >> Model config AlbertConfig {
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|file_utils.py:1664] 2021-11-10 18:53:05,596 >> https://huggingface.co/albert-base-v2/resolve/main/pytorch_model.bin not found in cache or force_download set to True, downloading to C:\Users\TabrisAO\.cache\huggingface\transformers\tmp47sgdqxs
+Downloading: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 45.2M/45.2M [00:01<00:00, 38.3MB/s] 
+[INFO|file_utils.py:1668] 2021-11-10 18:53:07,054 >> storing https://huggingface.co/albert-base-v2/resolve/main/pytorch_model.bin in cache at C:\Users\TabrisAO/.cache\huggingface\transformers\bf1986d976e9a8320cbd3a0597e610bf299d639ce31b7ca581cbf54be3aaa6d3.d6d54047dfe6ae844e3bf6e7a7d0aff71cb598d3df019361e076ba7639b1da9b
+[INFO|file_utils.py:1676] 2021-11-10 18:53:07,055 >> creating metadata file for C:\Users\TabrisAO/.cache\huggingface\transformers\bf1986d976e9a8320cbd3a0597e610bf299d639ce31b7ca581cbf54be3aaa6d3.d6d54047dfe6ae844e3bf6e7a7d0aff71cb598d3df019361e076ba7639b1da9b
+[INFO|modeling_utils.py:1323] 2021-11-10 18:53:07,056 >> loading weights file https://huggingface.co/albert-base-v2/resolve/main/pytorch_model.bin from cache at C:\Users\TabrisAO/.cache\huggingface\transformers\bf1986d976e9a8320cbd3a0597e610bf299d639ce31b7ca581cbf54be3aaa6d3.d6d54047dfe6ae844e3bf6e7a7d0aff71cb598d3df019361e076ba7639b1da9b
+[WARNING|modeling_utils.py:1580] 2021-11-10 18:53:07,106 >> Some weights of the model checkpoint at albert-base-v2 were not used when initializing AlbertForQuestionAnswering: ['predictions.dense.bias', 'predictions.LayerNorm.bias', 'predictions.LayerNorm.weight', 'predictions.decoder.bias', 'predictions.decoder.weight', 'predictions.bias', 'predictions.dense.weight']
+- This IS expected if you are initializing AlbertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing AlbertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model 
+from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:1591] 2021-11-10 18:53:07,107 >> Some weights of AlbertForQuestionAnswering were not initialized from the model checkpoint at albert-base-v2 and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+11/10/2021 18:53:07 - INFO - __main__ - Training/evaluation parameters Namespace(adam_epsilon=1e-08, cache_dir='', config_name='', data_dir=None, device=device(type='cuda'), do_eval=True, do_lower_case=True, do_train=True, doc_stride=128, eval_all_checkpoints=False, evaluate_during_training=False, fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=4, lang_id=0, learning_rate=3e-05, local_rank=-1, logging_steps=500, max_answer_length=30, max_grad_norm=1.0, max_query_length=64, max_seq_length=384, max_steps=-1, model_name_or_path='albert-base-v2', model_type='albert', n_best_size=20, n_gpu=1, no_cuda=False, null_score_diff_threshold=0.0, num_train_epochs=3.0, output_dir='./output/', overwrite_cache=False, overwrite_output_dir=False, per_gpu_eval_batch_size=64, per_gpu_train_batch_size=3, predict_file='../squad/dev-v2.0.json', save_steps=2000, seed=42, server_ip='', server_port='', threads=24, tokenizer_name='', train_file='../squad/train-v2.0.json', verbose_logging=False, version_2_with_negative=True, warmup_steps=814, weight_decay=0.0)
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 442/442 [00:25<00:00, 17.09it/s] 
+convert squad examples to features: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 130319/130319 [01:22<00:00, 1587.35it/s] 
+add example index and unique id: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 130319/130319 [00:00<00:00, 1447978.76it/s] 
+11/10/2021 18:55:00 - INFO - __main__ - Saving features into cached file .\cached_train_albert-base-v2_384
+11/10/2021 18:56:30 - INFO - numexpr.utils - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+11/10/2021 18:56:30 - INFO - numexpr.utils - NumExpr defaulting to 8 threads.
+11/10/2021 18:56:30 - INFO - __main__ - ***** Running training *****
+11/10/2021 18:56:30 - INFO - __main__ -   Num examples = 132198
+11/10/2021 18:56:30 - INFO - __main__ -   Num Epochs = 3
+11/10/2021 18:56:30 - INFO - __main__ -   Instantaneous batch size per GPU = 3
+11/10/2021 18:56:30 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 12
+11/10/2021 18:56:30 - INFO - __main__ -   Gradient Accumulation steps = 4
+11/10/2021 18:56:30 - INFO - __main__ -   Total optimization steps = 33048
+Epoch:   0%|                                                                                                                                                                  | 0/3 [00:00<?, ?it/s]C:\ProgramData\Anaconda3\envs\bert\lib\site-packages\torch\optim\lr_scheduler.py:247: UserWarning: To get the last learning rate computed by the scheduler, please use `get_last_lr()`.31, 11.04it/s] 
+  warnings.warn("To get the last learning rate computed by the scheduler, "
+
+Iteration:  15%|█████████████████████                                                                                                                        | 6595/44066 [10:00<1:05:06,  9.59it/s][INFO|configuration_utils.py:413] 2021-11-10 19:08:39,687 >> Configuration saved in ./output/checkpoint-2000\config.json                                        | 7995/44066 [12:09<53:41, 11.20it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 19:08:39,730 >> Model weights saved in ./output/checkpoint-2000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 19:08:39,731 >> tokenizer config file saved in ./output/checkpoint-2000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 19:08:39,731 >> Special tokens file saved in ./output/checkpoint-2000\special_tokens_map.json
+11/10/2021 19:08:39 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-2000
+11/10/2021 19:08:39 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-2000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 19:20:50,987 >> Configuration saved in ./output/checkpoint-4000\config.json                                       | 15994/44066 [24:20<41:50, 11.18it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 19:20:51,028 >> Model weights saved in ./output/checkpoint-4000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 19:20:51,029 >> tokenizer config file saved in ./output/checkpoint-4000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 19:20:51,030 >> Special tokens file saved in ./output/checkpoint-4000\special_tokens_map.json
+11/10/2021 19:20:51 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-4000
+11/10/2021 19:20:51 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-4000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 19:32:46,342 >> Configuration saved in ./output/checkpoint-6000\config.json                                       | 23994/44066 [36:15<29:56, 11.17it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 19:32:46,382 >> Model weights saved in ./output/checkpoint-6000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 19:32:46,383 >> tokenizer config file saved in ./output/checkpoint-6000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 19:32:46,384 >> Special tokens file saved in ./output/checkpoint-6000\special_tokens_map.json
+11/10/2021 19:32:46 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-6000
+11/10/2021 19:32:46 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-6000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 19:44:41,780 >> Configuration saved in ./output/checkpoint-8000\config.json                                       | 31994/44066 [48:11<18:01, 11.16it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 19:44:41,821 >> Model weights saved in ./output/checkpoint-8000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 19:44:41,824 >> tokenizer config file saved in ./output/checkpoint-8000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 19:44:41,825 >> Special tokens file saved in ./output/checkpoint-8000\special_tokens_map.json
+11/10/2021 19:44:41 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-8000
+11/10/2021 19:44:41 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-8000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 19:56:37,137 >> Configuration saved in ./output/checkpoint-10000\config.json███████████████████████             | 39994/44066 [1:00:06<06:12, 10.92it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 19:56:37,191 >> Model weights saved in ./output/checkpoint-10000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 19:56:37,192 >> tokenizer config file saved in ./output/checkpoint-10000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 19:56:37,192 >> Special tokens file saved in ./output/checkpoint-10000\special_tokens_map.json
+11/10/2021 19:56:37 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-10000
+11/10/2021 19:56:37 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-10000
+
+Iteration: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 44066/44066 [1:06:15<00:00, 11.08it/s] 
+Epoch:  33%|█████████████████████████████████████████████████▎                                                                                                  | 1/3 [1:06:15<2:12:31, 3975.59s/it][INFO|configuration_utils.py:413] 2021-11-10 20:08:42,698 >> Configuration saved in ./output/checkpoint-12000\config.json                                     | 3930/44066 [05:56<1:00:33, 11.05it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 20:08:42,739 >> Model weights saved in ./output/checkpoint-12000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 20:08:42,740 >> tokenizer config file saved in ./output/checkpoint-12000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 20:08:42,740 >> Special tokens file saved in ./output/checkpoint-12000\special_tokens_map.json
+11/10/2021 20:08:42 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-12000
+11/10/2021 20:08:42 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-12000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 20:20:47,878 >> Configuration saved in ./output/checkpoint-14000\config.json                                      | 11930/44066 [18:01<48:27, 11.05it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 20:20:47,918 >> Model weights saved in ./output/checkpoint-14000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 20:20:47,919 >> tokenizer config file saved in ./output/checkpoint-14000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 20:20:47,920 >> Special tokens file saved in ./output/checkpoint-14000\special_tokens_map.json
+11/10/2021 20:20:47 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-14000
+11/10/2021 20:20:48 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-14000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 20:32:52,313 >> Configuration saved in ./output/checkpoint-16000\config.json                                      | 19930/44066 [30:06<36:22, 11.06it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 20:32:52,354 >> Model weights saved in ./output/checkpoint-16000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 20:32:52,357 >> tokenizer config file saved in ./output/checkpoint-16000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 20:32:52,358 >> Special tokens file saved in ./output/checkpoint-16000\special_tokens_map.json
+11/10/2021 20:32:52 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-16000
+11/10/2021 20:32:52 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-16000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 20:44:56,871 >> Configuration saved in ./output/checkpoint-18000\config.json                                      | 27930/44066 [42:10<24:19, 11.06it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 20:44:56,913 >> Model weights saved in ./output/checkpoint-18000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 20:44:56,914 >> tokenizer config file saved in ./output/checkpoint-18000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 20:44:56,915 >> Special tokens file saved in ./output/checkpoint-18000\special_tokens_map.json
+11/10/2021 20:44:56 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-18000
+11/10/2021 20:44:56 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-18000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 20:57:01,335 >> Configuration saved in ./output/checkpoint-20000\config.json███████████▊                          | 35930/44066 [54:15<12:15, 11.06it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 20:57:01,376 >> Model weights saved in ./output/checkpoint-20000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 20:57:01,377 >> tokenizer config file saved in ./output/checkpoint-20000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 20:57:01,378 >> Special tokens file saved in ./output/checkpoint-20000\special_tokens_map.json
+11/10/2021 20:57:01 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-20000
+11/10/2021 20:57:01 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-20000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 21:09:06,140 >> Configuration saved in ./output/checkpoint-22000\config.json███████████████████████████████████▌| 43930/44066 [1:06:19<00:12, 11.03it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 21:09:06,182 >> Model weights saved in ./output/checkpoint-22000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 21:09:06,183 >> tokenizer config file saved in ./output/checkpoint-22000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 21:09:06,183 >> Special tokens file saved in ./output/checkpoint-22000\special_tokens_map.json
+11/10/2021 21:09:06 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-22000
+11/10/2021 21:09:06 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-22000
+Iteration: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 44066/44066 [1:06:32<00:00, 11.04it/s] 
+Epoch:  67%|██████████████████████████████████████████████████████████████████████████████████████████████████▋                                                 | 2/3 [2:12:48<1:06:25, 3985.49s/it][INFO|configuration_utils.py:413] 2021-11-10 21:21:19,444 >> Configuration saved in ./output/checkpoint-24000\config.json                                       | 7866/44066 [12:00<54:57, 10.98it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 21:21:19,491 >> Model weights saved in ./output/checkpoint-24000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 21:21:19,494 >> tokenizer config file saved in ./output/checkpoint-24000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 21:21:19,494 >> Special tokens file saved in ./output/checkpoint-24000\special_tokens_map.json
+11/10/2021 21:21:19 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-24000
+11/10/2021 21:21:19 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-24000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 21:33:29,455 >> Configuration saved in ./output/checkpoint-26000\config.json                                      | 15866/44066 [24:10<42:41, 11.01it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 21:33:29,514 >> Model weights saved in ./output/checkpoint-26000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 21:33:29,515 >> tokenizer config file saved in ./output/checkpoint-26000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 21:33:29,516 >> Special tokens file saved in ./output/checkpoint-26000\special_tokens_map.json
+11/10/2021 21:33:29 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-26000
+11/10/2021 21:33:29 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-26000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 21:45:39,427 >> Configuration saved in ./output/checkpoint-28000\config.json                                      | 23866/44066 [36:20<30:42, 10.97it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 21:45:39,480 >> Model weights saved in ./output/checkpoint-28000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 21:45:39,481 >> tokenizer config file saved in ./output/checkpoint-28000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 21:45:39,482 >> Special tokens file saved in ./output/checkpoint-28000\special_tokens_map.json
+11/10/2021 21:45:39 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-28000
+11/10/2021 21:45:39 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-28000
+
+Iteration:  57%|█████████████████████████████████████████████████████████████████████████████████                                                             | 25150/44066 [38:18<32:43,  9.63it/s][INFO|configuration_utils.py:413] 2021-11-10 21:57:50,545 >> Configuration saved in ./output/checkpoint-30000\config.json                                      | 31866/44066 [48:31<18:30, 10.99it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 21:57:50,605 >> Model weights saved in ./output/checkpoint-30000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 21:57:50,606 >> tokenizer config file saved in ./output/checkpoint-30000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 21:57:50,606 >> Special tokens file saved in ./output/checkpoint-30000\special_tokens_map.json
+11/10/2021 21:57:50 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-30000
+11/10/2021 21:57:50 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-30000
+                                                                                                                                                                                                    [INFO|configuration_utils.py:413] 2021-11-10 22:09:57,543 >> Configuration saved in ./output/checkpoint-32000\config.json██████████████████████▋             | 39866/44066 [1:00:38<06:20, 11.04it/s] 
+[INFO|modeling_utils.py:1041] 2021-11-10 22:09:57,584 >> Model weights saved in ./output/checkpoint-32000\pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 22:09:57,587 >> tokenizer config file saved in ./output/checkpoint-32000\tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 22:09:57,588 >> Special tokens file saved in ./output/checkpoint-32000\special_tokens_map.json
+11/10/2021 22:09:57 - INFO - __main__ - Saving model checkpoint to ./output/checkpoint-32000
+11/10/2021 22:09:57 - INFO - __main__ - Saving optimizer and scheduler states to ./output/checkpoint-32000
+Iteration: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 44066/44066 [1:07:00<00:00, 10.96it/s]
+Epoch: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [3:19:48<00:00, 3996.06s/it] 
+11/10/2021 22:16:18 - INFO - __main__ -  global_step = 33049, average loss = 0.875327053300883
+11/10/2021 22:16:18 - INFO - __main__ - Saving model checkpoint to ./output/
+[INFO|configuration_utils.py:413] 2021-11-10 22:16:18,614 >> Configuration saved in ./output/config.json
+[INFO|modeling_utils.py:1041] 2021-11-10 22:16:18,655 >> Model weights saved in ./output/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2021-11-10 22:16:18,656 >> tokenizer config file saved in ./output/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2021-11-10 22:16:18,657 >> Special tokens file saved in ./output/special_tokens_map.json
+[INFO|configuration_utils.py:581] 2021-11-10 22:16:18,660 >> loading configuration file ./output/config.json
+[INFO|configuration_utils.py:620] 2021-11-10 22:16:18,661 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|modeling_utils.py:1321] 2021-11-10 22:16:18,665 >> loading weights file ./output/pytorch_model.bin
+[INFO|modeling_utils.py:1588] 2021-11-10 22:16:18,724 >> All model checkpoint weights were used when initializing AlbertForQuestionAnswering.
+
+[INFO|modeling_utils.py:1597] 2021-11-10 22:16:18,724 >> All the weights of AlbertForQuestionAnswering were initialized from the model checkpoint at ./output/.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AlbertForQuestionAnswering for predictions without further training.
+[INFO|tokenization_utils_base.py:1671] 2021-11-10 22:16:18,729 >> Didn't find file ./output/added_tokens.json. We won't load it.
+[INFO|tokenization_utils_base.py:1671] 2021-11-10 22:16:18,729 >> Didn't find file ./output/tokenizer.json. We won't load it.
+[INFO|tokenization_utils_base.py:1739] 2021-11-10 22:16:18,729 >> loading file ./output/spiece.model
+[INFO|tokenization_utils_base.py:1739] 2021-11-10 22:16:18,729 >> loading file None
+[INFO|tokenization_utils_base.py:1739] 2021-11-10 22:16:18,729 >> loading file ./output/special_tokens_map.json
+[INFO|tokenization_utils_base.py:1739] 2021-11-10 22:16:18,730 >> loading file ./output/tokenizer_config.json
+[INFO|tokenization_utils_base.py:1739] 2021-11-10 22:16:18,730 >> loading file None
+11/10/2021 22:16:18 - INFO - __main__ - Loading checkpoints saved during training for evaluation
+11/10/2021 22:16:18 - INFO - __main__ - Evaluate the following checkpoints: ['./output/']
+[INFO|configuration_utils.py:581] 2021-11-10 22:16:18,782 >> loading configuration file ./output/config.json
+[INFO|configuration_utils.py:620] 2021-11-10 22:16:18,783 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|modeling_utils.py:1321] 2021-11-10 22:16:18,785 >> loading weights file ./output/pytorch_model.bin
+[INFO|modeling_utils.py:1588] 2021-11-10 22:16:18,850 >> All model checkpoint weights were used when initializing AlbertForQuestionAnswering.
+
+[INFO|modeling_utils.py:1597] 2021-11-10 22:16:18,850 >> All the weights of AlbertForQuestionAnswering were initialized from the model checkpoint at ./output/.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AlbertForQuestionAnswering for predictions without further training.
+11/10/2021 22:16:18 - INFO - __main__ - Creating features from dataset file at .
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 35/35 [00:02<00:00, 13.96it/s]
+convert squad examples to features: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11873/11873 [00:14<00:00, 797.16it/s]
+add example index and unique id: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11873/11873 [00:00<00:00, 1484852.15it/s]
+11/10/2021 22:16:37 - INFO - __main__ - Saving features into cached file .\cached_dev_albert-base-v2_384
+11/10/2021 22:16:46 - INFO - __main__ - ***** Running evaluation  *****
+11/10/2021 22:16:46 - INFO - __main__ -   Num examples = 12272
+11/10/2021 22:16:46 - INFO - __main__ -   Batch size = 64
+Evaluating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 192/192 [01:53<00:00,  1.69it/s] 
+11/10/2021 22:18:39 - INFO - __main__ -   Evaluation done in total 113.489644 secs (0.009248 sec per example)
+[INFO|squad_metrics.py:401] 2021-11-10 22:18:39,963 >> Writing predictions to: ./output/predictions_.json
+[INFO|squad_metrics.py:403] 2021-11-10 22:18:39,963 >> Writing nbest to: ./output/nbest_predictions_.json
+[INFO|squad_metrics.py:405] 2021-11-10 22:18:39,964 >> Writing null_log_odds to: ./output/null_odds_.json
+11/10/2021 22:19:10 - INFO - __main__ - Results: {'exact': 78.20264465594205, 'f1': 81.51628070699975, 'total': 11873, 'HasAns_exact': 74.66261808367072, 'HasAns_f1': 81.29939285327433, 'HasAns_total': 5928, 'NoAns_exact': 81.73254835996636, 'NoAns_f1': 81.73254835996636, 'NoAns_total': 5945, 'best_exact': 78.20264465594205, 'best_exact_thresh': 0.0, 'best_f1': 81.51628070699964, 'best_f1_thresh': 0.0}
